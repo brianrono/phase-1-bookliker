@@ -100,7 +100,7 @@ function showBookDetails(book) {
         likedBy.appendChild(userLi);
     });
     showPanel.appendChild(likedBy);
-}
+}preventDefault();
 
 // Add or remove the current user from the list of users who have liked the book
 function toggleLikeBook(book) {
@@ -123,7 +123,6 @@ const body = JSON.stringify({ users: book.users });
   .then(updatedBook => {
     const likedBy = document.querySelector('#show-panel ul');
         likedBy.innerHTML = '';
-        preventDefault();
         updatedBook.users.forEach(user => {
             const userLi = document.createElement('li');
             userLi.textContent = user.username;
